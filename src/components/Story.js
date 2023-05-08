@@ -1,6 +1,3 @@
-
-
-
 export default function Story({kek}) {
     return (
         <div class="story">
