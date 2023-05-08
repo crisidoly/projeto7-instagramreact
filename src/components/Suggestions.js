@@ -34,9 +34,9 @@ export default function Suggestions() {
       <>
      
       <div class="sugestoes">
-      <div class="titulo">
-      Sugestões para você
-      <div>Ver tudo</div>
+        <div class="titulo">
+        Sugestões para você
+        <div>Ver tudo</div>
       </div>
         {suggestionInfo.map((lul) => (
         <Suggestion

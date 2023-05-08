@@ -25,6 +25,11 @@ body {
   z-index: 2;
 }
 
+.red-heart {
+  color: red;
+}
+
+
 .navbar ion-icon, .navbar img {
   cursor: pointer;
 }

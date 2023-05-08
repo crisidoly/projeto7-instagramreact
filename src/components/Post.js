@@ -1,8 +1,15 @@
+import { useState } from "react"
 
 
 export default function Post({plim}) {
+  const [save, setSave] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [likes, setLikes] = useState(plim.likes);
+
+
+  
     return (
-        <div class="post">
+        <div data-test="post" class="post">
             <div class="topo">
             <div class="usuario">
                 <img src={plim.fotoUser} alt="meowed"/>
@@ -14,25 +21,31 @@ export default function Post({plim}) {
             </div>
 
         <div class="conteudo">
-          <img src={plim.fotoPostada} alt="gato-telefone"/>
+          <img data-test="post-image" src={plim.fotoPostada} alt="gato-telefone"/>
         </div>
 
         <div class="fundo">
           <div class="acoes">
             <div>
-              <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon 
+              data-test="like-post"
+              name={isLiked ? "heart" : "heart-outline"} 
+              onClick={() => setIsLiked(!isLiked)}  
+              style={{ color: isLiked ? "red" : "black" }}
+            />
               <ion-icon name="chatbubble-outline"></ion-icon>
               <ion-icon name="paper-plane-outline"></ion-icon>
             </div>
-            <div>
-              <ion-icon name="bookmark-outline"></ion-icon>
+            <div onClick={() => {setSave(!save)}}>
+              {!save ? 
+              <ion-icon data-test="save-post" name="bookmark-outline"></ion-icon> : <ion-icon  name="bookmark"></ion-icon>}
             </div>
           </div>
 
           <div class="curtidas">
             <img src={plim.fotoCurtidor} alt="respondeai"/>
-            <div class="texto">
-              Curtido por <strong>{plim.curtidoPor}</strong> e <strong>outras 101.523 pessoas</strong>
+            <div class="texto" data-test="like-post">
+              Curtido por <strong>{plim.curtidoPor}</strong> e <strong>outras {plim.likes} pessoas</strong>
             </div>
           </div>
         </div>
