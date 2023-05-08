@@ -74,7 +74,7 @@ export default function Post({ plim }) {
           <img src={plim.fotoCurtidor} alt="respondeai" />
           <div class="texto" data-test="like-post">
             Curtido por <strong>{plim.curtidoPor}</strong> e{" "}
-            <strong>outras {likes} pessoas</strong>
+            <strong data-test="likes-number"> outras {likes} pessoas</strong>
           </div>
         </div>
       </div>
